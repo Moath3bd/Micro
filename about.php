@@ -129,9 +129,11 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="col-md-8 text-white">
                     <h1>About Us</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Welcome to MicroE, your premier destination for cutting-edge computing solutions. At MicroE, we are dedicated to providing a seamless and innovative experience for all your PC and laptop needs. With a passion for technology and a commitment to customer satisfaction, we have established ourselves as a trusted source for top-tier devices.
+
+<h2>Who We Are:</h2>
+At MicroE, we are a team of tech enthusiasts driven by a common goal – to empower our customers with the latest and most reliable computing solutions. With a wealth of knowledge and expertise in the ever-evolving world of technology, we carefully curate a diverse range of PCs and laptops to cater to the unique needs of our clientele.
+
                     </p>
                 </div>
                 <div class="col-md-4">
@@ -148,8 +150,7 @@ https://templatemo.com/tm-559-zay-shop
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">Our Services</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    Lorem ipsum dolor sit amet.
+
                 </p>
             </div>
         </div>
@@ -193,8 +194,6 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="col-lg-6 m-auto">
                     <h1 class="h1">Our Brands</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        Lorem ipsum dolor sit amet.
                     </p>
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
