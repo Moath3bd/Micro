@@ -244,7 +244,7 @@ At MicroE, we are a team of tech enthusiasts driven by a common goal – to empo
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/Brand_07.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/Brand_04.png" alt="Brand Logo"></a>
                                             </div>
                                         </div>
                                     </div>
