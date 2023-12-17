@@ -34,16 +34,16 @@ https://templatemo.com/tm-559-zay-shop
         <div class="container text-light">
             <div class="w-100 d-flex justify-content-between">
                 <div>
-                    <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    <i class="fa fa-envelope mx-2 "></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none color" href="mailto:info@company.com">group@group.com</a>
                     <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none color" href="tel:079-999-9999">(+962) - 799999999</a>
                 </div>
                 <div>
-                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2 color"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2 color"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2 color"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw color"></i></a>
                 </div>
             </div>
         </div>
@@ -157,7 +157,39 @@ https://templatemo.com/tm-559-zay-shop
         mymap.touchZoom.disable();
     </script>
     <!-- Ena Map -->
+    <?php
+    // Database connection parameters
+    $servername = 'localhost';
+    $username = 'root';
+    $password = '';
+    $dbname = 'microe';
 
+    // Create a new PDO instance
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
+    if (isset($_POST['submit'])) {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+
+        // Adjust the table and column names according to your requirements
+        $tableName = 'contact';
+        $nameColumnName = 'name';
+        $emailColumnName = 'email';
+        $messageColumnName = 'message';
+
+        // Insert the data into the table
+        $query = "INSERT INTO $tableName ($nameColumnName, $emailColumnName, $messageColumnName) VALUES (:name, :email, :message)";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':message', $message);
+        $stmt->execute();
+
+        // Show a success message or redirect to a confirmation page
+        echo "<p>Form submitted successfully!</p>";
+    }
+    ?>
     <!-- Start Contact -->
     <div class="container py-5">
         <div class="row py-5">
@@ -171,10 +203,6 @@ https://templatemo.com/tm-559-zay-shop
                         <label for="inputemail">Email</label>
                         <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="inputsubject">Subject</label>
-                    <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Subject">
                 </div>
                 <div class="mb-3">
                     <label for="inputmessage">Message</label>
