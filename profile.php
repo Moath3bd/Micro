@@ -1,3 +1,49 @@
+
+<?php
+// Initialize variables with default values
+$email = '';
+$name = '';
+$phone = '';
+$password = '';
+
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve the form data
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $name = isset($_POST['name']) ? $_POST['name'] : '';
+    $phone = isset($_POST['Phone']) ? $_POST['Phone'] : '';
+    $carPlate = isset($_POST['numberInput']) ? $_POST['numberInp9'] : '';
+
+    // Database connection parameters
+    $servername = 'localhost';
+    $username = 'root';
+    $password = '';
+    $dbname = 'echarge';
+
+    // Create a new PDO instance
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
+    // Prepare the SQL query to update the user information
+    $query = "UPDATE users SET name = :name, phone = :phone, carPlate = :carPlate WHERE email = :email";
+
+    // Prepare and execute the query
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':phone', $phone);
+    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+
+    // Check if the update was successful
+    if ($stmt->rowCount() > 0) {
+        // Update successful
+        echo "User information updated successfully.";
+    } else {
+        // Update failed
+        echo "Failed to update user information.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,50 +66,18 @@
            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-circle profile-avatar" alt="User avatar">
           </div>
         </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-        <h4 class="panel-title">User info</h4>
-        </div>
-        <div class="panel-body">
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Location</label>
-            <div class="col-sm-10">
-              <select class="form-control">
-                <option selected="">Select country</option>
-                <option>Belgium</option>
-                <option>Canada</option>
-                <option>Denmark</option>
-                <option>Estonia</option>
-                <option>France</option>
-              </select>
-            </div>
-          </div>
-          <!-- <div class="form-group">
-            <label class="col-sm-2 control-label">Company name</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control">
-            </div>
-          </div> -->
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Position</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control">
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="panel panel-default">
         <div class="panel-heading">
         <h4 class="panel-title">Contact info</h4>
         </div>
         <div class="panel-body">
-          <!-- <div class="form-group">
-            <label class="col-sm-2 control-label">Work number</label>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
               <input type="tel" class="form-control">
             </div>
-          </div> -->
+          </div> 
           <div class="form-group">
             <label class="col-sm-2 control-label">Mobile number</label>
             <div class="col-sm-10">
